@@ -13,7 +13,6 @@ public class WallScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        transform.Rotate(new Vector3(0, 5, 0)); //回転させる
+        transform.Rotate(new Vector3(0, 5, 0));
     }
 }
