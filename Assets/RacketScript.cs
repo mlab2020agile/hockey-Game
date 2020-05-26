@@ -10,16 +10,36 @@ public class RacketScript : MonoBehaviour
     private Vector3 screenToWorldPointPosition;
     // Use this for initialization
 
-    private Vector3 tmp;
+    private Vector3 pos;
+    private Vector3 posz;
+
+    // マウスホイールの回転値を格納する変数
+    private float scroll;
+    // ラケット移動の速度
+    public float speed = 1000f;
     
     void Start()
     {
-        tmp = GameObject.Find("racket").transform.position;
+        posz.z = -10f;
     }
 
     // Update is called once per frame
     void Update()
     {
+        // マウスホイールの回転値を変数 scroll に渡す
+        scroll = 0;
+        scroll = Input.GetAxis("Mouse ScrollWheel");
+
+        if(scroll != 0){
+            if(posz.z < -14.23f){
+                posz.z = -14.23f;
+            }else if(posz.z > 14.23f){
+                posz.z = 14.23f;
+            }else{
+                posz.z += scroll * 10f;
+            }
+        }
+
         // Vector3でマウス位置座標を取得する
         position = Input.mousePosition;
         // Z軸修正
@@ -29,10 +49,10 @@ public class RacketScript : MonoBehaviour
         // ワールド座標に変換されたマウス座標を代入
         gameObject.transform.position = screenToWorldPointPosition;
         //gameObject.transform.positionの座標をいじるための変数pos
-        Vector3 pos = gameObject.transform.position;
-        //posのz軸を固定
-        pos.z = -10f;
-
+        pos = gameObject.transform.position;
+        //posのz軸をマウスホイールで設定
+        //this.gameObject.transform.Translate (position.x, position.y, scroll * speed);
+        
 
         //壁よりもラケットが外に行かないようにする為の条件文
         if (pos.y > 17.2f)
@@ -52,7 +72,8 @@ public class RacketScript : MonoBehaviour
             pos.x = -12.2f;
         }
 
+        pos.z = posz.z;
         gameObject.transform.position = pos;  // 座標を設定
-        Debug.Log(pos); //デバック
+        Debug.Log(scroll); //デバック
     }
 }
