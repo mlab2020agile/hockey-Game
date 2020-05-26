@@ -18,7 +18,7 @@ public class LostPoint : MonoBehaviour
        // Debug.Log(getpoint);
         count = 0;
         score = getpoint - count;
-        countText.text = "失点" + count.ToString()+"Score" + score.ToString();
+        countText.text = "失点" + count.ToString()+"\nScore" + score.ToString();
     }
     void OnCollisionEnter(Collision collision)
     {
@@ -30,7 +30,7 @@ public class LostPoint : MonoBehaviour
     void Update()
     { int getpoint = script.count;
         score = getpoint - count;
-        countText.text = "失点" + count.ToString()+"Score" + score.ToString();
+        countText.text = "失点" + count.ToString()+"\nScore" + score.ToString();
     }
 
 }
