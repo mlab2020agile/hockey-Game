@@ -18,7 +18,7 @@ public class IgaguriController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Shoot(new Vector3(1000, 0, 1000));
+        Shoot(new Vector3(0, 0, -1000));
     }
 
 }
