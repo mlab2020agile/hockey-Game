@@ -17,7 +17,12 @@ public class RacketScript : MonoBehaviour
     private float scroll;
     // ラケット移動の速度
     public float speed = 1000f;
-    
+
+    //効果音の出力
+    void OnCollisionEnter(Collision collision){
+        GetComponent<AudioSource>().Play();
+    }
+
     void Start()
     {
         posz.z = -10f;

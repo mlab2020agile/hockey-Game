@@ -7,7 +7,11 @@ public class CapsuleScript : MonoBehaviour
     public float capsuleX = 0.3f;                       //オブジェクトの速度
     private Vector3 position;                           //オブジェクトの位置用変数
 
-
+    //効果音の出力
+    void OnCollisionEnter(Collision collision){
+        GetComponent<AudioSource>().Play();
+    }
+    
     // Start is called before the first frame update
     void Start()
     {

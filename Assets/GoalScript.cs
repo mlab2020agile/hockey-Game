@@ -29,6 +29,9 @@ public class GoalScript : MonoBehaviour
         else if (color == 1) { GetComponent<Renderer>().material.color = Color.red; color = 0; }
         count = count + 1;
         countText.text = "得点" + count.ToString();
+
+        //効果音の出力
+        GetComponent<AudioSource>().Play();
     }
     // Update is called once per frame
     void Update()

@@ -22,9 +22,11 @@ public class LostPoint : MonoBehaviour
     }
     void OnCollisionEnter(Collision collision)
     {
+       count = count + 1;
        
-        count = count + 1;
-        
+        //効果音の出力
+        GetComponent<AudioSource>().Play();
+    
     }
     // Update is called once per frame
    public void Update()

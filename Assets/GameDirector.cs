@@ -7,8 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class GameDirector : MonoBehaviour
 {
-    
-    float time = 60.0f;                 //ゲームは60秒間
+    public float time = 60.0f;                 //ゲームは60秒間
     public bool TimerStart = false;     //タイマースタートのフラグ trueでスタート
     GameObject timerText;               //UIのテキスト用
     GameObject front;
@@ -16,6 +15,8 @@ public class GameDirector : MonoBehaviour
     GameObject FinalScore;
     int final;
     LostPoint script;
+    GameObject racket;
+    GameObject ball;
 
     public GameObject ContinueButton;
     //外部からのアクセスでTimerStartの値を変える
@@ -49,6 +50,7 @@ public class GameDirector : MonoBehaviour
     // Start is called before the first frame update
     public void Start()
     {
+        
         front = GameObject.Find("front");
         script = front.GetComponent<LostPoint>();
         int final = script.score;
@@ -56,7 +58,7 @@ public class GameDirector : MonoBehaviour
 
         this.timerText = GameObject.Find("Time");
         ContinueButton.SetActive(false);
-      //  FinalScore.SetActive(false);
+        //FinalScore.SetActive(false);
     }
 
     // Update is called once per frame
@@ -68,6 +70,13 @@ public class GameDirector : MonoBehaviour
         {
             //タイマースタート
             timer();
+            //タイマ０でラケットとボールを消す用
+            if(this.time <= 0){
+                this.racket = GameObject.Find("racket");
+                this.ball = GameObject.Find("Ball");
+                Destroy(this.racket);
+                Destroy(this.ball);
+            }
         }
         int final = script.score;
         finaler.text = "総Score:" + final.ToString();
