@@ -12,7 +12,7 @@ public class GameDirector : MonoBehaviour
     GameObject timerText;               //UIのテキスト用
     GameObject front;
     public Text finaler;
-    GameObject FinalScore;
+    public GameObject FinalScore;
     int final;
     LostPoint script;
     GameObject racket;

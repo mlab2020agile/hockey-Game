@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.3731193, g: 0.38073996, b: 0.35872698, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1247,6 +1247,7 @@ MonoBehaviour:
   time: 60
   TimerStart: 0
   finaler: {fileID: 1544729235}
+  FinalScore: {fileID: 1544729233}
   ContinueButton: {fileID: 107122412}
 --- !u!4 &1023586891
 Transform:
